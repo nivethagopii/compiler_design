@@ -1,0 +1,23 @@
+%{
+      int co=0,n=0;
+%}
+%%
+      [0-9] co++;
+      n++;
+%%
+int main()
+{
+      FILE *f;
+      char file[10];
+      printf("Enter File Name : ");
+      scanf("%s",file);
+      f=fopen(file,"r");
+      yyin=f;
+      yylex();
+      printf("\nNumber of Constants : %d",co);
+      return 0;
+}
+int yywrap()
+{
+      return 1;
+}
